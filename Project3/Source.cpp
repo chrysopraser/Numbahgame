@@ -1,6 +1,10 @@
+//preprocessor statements
 #include <iostream>
 #include "stdlib.h"
 #include <ctime>
+
+using namespace std;
+
 
 /*TODO:
 1. Return "turns remaining" aka total turns taken on win senario.
@@ -8,7 +12,7 @@
 */
 
 
-int main2()
+int main()
 {
 	srand(time(NULL));
 	int number = rand() % 5 +1;
