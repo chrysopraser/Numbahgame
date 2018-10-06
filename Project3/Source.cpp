@@ -7,17 +7,19 @@ using namespace std;
 
 
 /*TODO:
-1. Return "turns remaining" aka total turns taken on win senario.
-2. Return Higher/Lower on Guess.
+1. Return "turns remaining/used" aka total turns taken on win senario.
+2. Return Higher/Lower on Guess. -COMPLETE
 */
 
 
 int main()
 {
-	srand(time(NULL));
+	int turns_used = 0;
+	srand(time(NULL)); 
 	int number = rand() % 5 +1;
 	bool win = false;
 
+	//for loop
 	for (int i = 5; i >= 1; i--)
 	{
 
@@ -36,16 +38,27 @@ int main()
 
 		if (guess == number) {
 			win = true;
+			turns_used = 5 - --i;
 			break;
 
 		}
-		else { win = false;
-		continue;
+
+		//flow control statements
+		else if (guess < number) {
+			cout << "Too low bro, Try Again." << endl;
+			win = false;
+			continue;
+		}
+
+		else { 
+			cout << "Too high guy, Try Again." << endl;
+			win = false;
+			continue;
 		}
 	}
-	
+	//conditional statements
 	if (win) {
-	std::cout << "Yay! YOU WON!" << std::endl;
+	std::cout << "Yay! YOU WON! It it took you " << turns_used << " turns" << std::endl;
 
 	}
 
